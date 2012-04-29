@@ -40,7 +40,7 @@
                 cmd.ExecuteNonQuery();
 
                 return cmd.Parameters.Cast<IDbDataParameter>()
-                    .Where(x => x.Direction == ParameterDirection.Input)
+                    .Where(x => x.Direction != ParameterDirection.Input)
                     .ToDictionary(x => x.ParameterName, y => y.Value);
             }
             finally
